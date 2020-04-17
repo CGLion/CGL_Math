@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CGL_Math", "CGL_Math.vcxproj", "{C362076A-ABC5-46F8-9337-9B6074043624}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Debug|x64.ActiveCfg = Debug|x64
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Debug|x64.Build.0 = Debug|x64
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Debug|x86.ActiveCfg = Debug|Win32
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Debug|x86.Build.0 = Debug|Win32
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Release|x64.ActiveCfg = Release|x64
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Release|x64.Build.0 = Release|x64
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Release|x86.ActiveCfg = Release|Win32
+		{C362076A-ABC5-46F8-9337-9B6074043624}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA6420EC-0E66-4675-A83B-9014706B739E}
+	EndGlobalSection
+EndGlobal
