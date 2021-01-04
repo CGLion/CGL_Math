@@ -1,0 +1,13 @@
+﻿  CGL_CubicBezierCurve3D.cpp
+  CGL_CubicBezierPath3D.cpp
+  CGL_CubicBezierPath3DSurface.cpp
+  CGL_CubicBezierPath3DSurfaceKnot.cpp
+  CGL_CurveUtil.cpp
+  CGL_Geometry.cpp
+  CGL_MathUtil.cpp
+  CGL_Matrix3D.cpp
+  CGL_Ray.cpp
+  CGL_Vector3D.cpp
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Generating Code...
+  CGL_Math.vcxproj -> D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Release\CGL_Math.lib

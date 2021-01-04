@@ -1,0 +1,2 @@
+D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Release\CGL_Math.vcxprojAssemblyReference.cache
+D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Release\CGL_Math.lib

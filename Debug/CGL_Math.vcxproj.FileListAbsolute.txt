@@ -1,3 +1,6 @@
 D:\Google Drive\CG-Lion_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.vcxprojAssemblyReference.cache
 D:\Google Drive\CG-Lion_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.lib
 D:\Google Drive\CG-Lion_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.pdb
+D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.vcxprojAssemblyReference.cache
+D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.lib
+D:\Google Drive\CGL_Studio\Development\CPP\CGL_Math\Debug\CGL_Math.pdb
