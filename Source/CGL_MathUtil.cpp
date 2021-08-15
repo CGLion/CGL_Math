@@ -11,7 +11,7 @@ namespace CGL_Math
 		return (_Number - std::floor(_Number) == 0.0) ? true : false;
 	}
 
-	double CGL_MathUtil::ListSum(std::vector<double>& list)
+	double CGL_MathUtil::Sum(std::vector<double>& list)
 	{
 		double sum = 0.0;
 		for (auto& n : list)
@@ -21,7 +21,7 @@ namespace CGL_Math
 		return sum;
 	}
 
-	double CGL_MathUtil::ListSumAbs(std::vector<double>& list)
+	double CGL_MathUtil::SumAbs(std::vector<double>& list)
 	{
 		double sum = 0.0;
 		for (auto& n : list)
@@ -31,9 +31,9 @@ namespace CGL_Math
 		return sum;
 	}
 	
-	void CGL_MathUtil::ListValsToWeights(std::vector<double>& list)
+	void CGL_MathUtil::ValsToWeights(std::vector<double>& list)
 	{
-		double sum = CGL_MathUtil::ListSumAbs(list);
+		double sum = CGL_MathUtil::SumAbs(list);
 		for (auto& n : list)
 		{
 			 n = n / sum;
