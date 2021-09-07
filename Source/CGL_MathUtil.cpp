@@ -69,4 +69,18 @@ namespace CGL_Math
 		auto comparison = [&list](int a, int b) { return list[a] > list[b]; };
 		std::sort(indices.begin(), indices.end(), comparison);
 	}
+
+	void CGL_MathUtil::CombineVectors(const std::vector<CGL_Vector3D>& vectors, const std::vector<double>& weights, CGL_Vector3D& combination)
+	{
+		combination.X = 0.0;
+		combination.Y = 0.0;
+		combination.Z = 0.0;
+		
+		for (uint_fast16_t i = 0 ; i < vectors.size(); i++)
+		{
+			combination.X += vectors[i].X * weights[i];
+			combination.Y += vectors[i].Y * weights[i];
+			combination.Z += vectors[i].Z * weights[i];
+		}
+	}
 }

@@ -1,6 +1,10 @@
 #pragma once
 
+#include "CGL_Vector3D.h"
 #include <vector>
+
+using namespace CGL_Math;
+using namespace CGL_Math::CGL_Values;
 
 namespace CGL_Math
 {
@@ -43,6 +47,11 @@ namespace CGL_Math
 		* Sorts the vector 'indices' according to descending order of the elements in the vector 'list'
 		*/
 		static void ValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
+
+		/**
+		* Combines the supllied 'vectors' using the supplied 'weights and updates the supplied 'combination' vector reference with the resulting vector: 
+		*/
+		static void CombineVectors(const std::vector<CGL_Vector3D>& vectors, const std::vector<double>& weights, CGL_Vector3D& combination);
 	};
 }
 
