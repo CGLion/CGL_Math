@@ -24,7 +24,7 @@ namespace CGL_Math
 			static CGL_Vector3D VectorSubtraction(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB);
 
 			// uses only x y z
-			static double Dot(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB);
+			static double Dot(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB, bool normalize = true);
 			
 			// uses only x y z
 			static CGL_Vector3D Cross(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB);

@@ -40,9 +40,24 @@ using namespace CGL_Math::CGL_Values;
 			);
 	}
 
-	double CGL_Vector3D::Dot(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB)
+	double CGL_Vector3D::Dot(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB, bool normalize)
 	{
-		return ((_VectorA.X*_VectorB.X) + (_VectorA.Y*_VectorB.Y) + (_VectorA.Z*_VectorB.Z));
+		double dot;
+		if (normalize)
+		{
+			double normA = 1.0 / CGL_Geometry::VectorLength3D(_VectorA.X, _VectorA.Y, _VectorA.Z);
+			double normB = 1.0 / CGL_Geometry::VectorLength3D(_VectorB.X, _VectorB.Y, _VectorB.Z);
+			dot =	( (_VectorA.X * normA) * (_VectorB.X * normB) ) +
+					( (_VectorA.Y * normA) * (_VectorB.Y * normB) ) +
+					( (_VectorA.Z * normA) * (_VectorB.Z * normB) );
+		}
+		else
+		{
+			dot =	(_VectorA.X * _VectorB.X) +
+					(_VectorA.Y * _VectorB.Y) + 
+					(_VectorA.Z * _VectorB.Z);
+		}
+		return dot;
 	}
 
 	CGL_Vector3D CGL_Vector3D::Cross(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB)
@@ -111,14 +126,15 @@ using namespace CGL_Math::CGL_Values;
 
 	double CGL_Vector3D::Normalize()
 	{
-		double Length = CGL_Geometry::VectorLength3D(X, Y, Z);
-		if (Length != 0.0f)
+		double length = CGL_Geometry::VectorLength3D(X, Y, Z);
+		double norm = 1.0 / length;
+		if (norm != 0.0f)
 		{
-			X /= Length;
-			Y /= Length;
-			Z /= Length;
+			X *= norm;
+			Y *= norm;
+			Z *= norm;
 		}
-		return Length;
+		return length;
 	}
 
 	double CGL_Vector3D::GetLength() const
