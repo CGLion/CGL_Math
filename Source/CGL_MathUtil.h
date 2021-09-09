@@ -27,6 +27,11 @@ namespace CGL_Math
 		static double SumAbs(std::vector<double>& list);
 
 		/**
+		* Retuns a value no less then 'min'and no greater then 'max'
+		*/
+		static double Clamp(double val, double min, double max);
+
+		/**
 		* Converts the list of values to a normalized weight list (sum of 1.0):
 		* Counts on user context to provide only positive values.
 		*/
