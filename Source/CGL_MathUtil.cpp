@@ -7,9 +7,14 @@ using namespace std;
 
 namespace CGL_Math
 {
-	bool CGL_MathUtil::CheckInt(double _Number)
+	bool CGL_MathUtil::CheckInt(double num)
 	{
-		return (_Number - std::floor(_Number) == 0.0) ? true : false;
+		return (num - std::floor(num) == 0.0) ? true : false;
+	}
+
+	int CGL_MathUtil::GetSign(double num)
+	{
+		return (num > 0) ? 1 : ((num < 0) ? -1 : 0);
 	}
 
 	double CGL_MathUtil::Sum(std::vector<double>& list)

@@ -14,7 +14,14 @@ namespace CGL_Math
 		/**
 		* Returns true if the supplied number is an integer
 		*/
-		static bool CheckInt(double _Number);
+		static bool CheckInt(double num);
+
+		/**
+		* Returns -1 for negative 0 for 0 and 1 for positive value:
+		* Note:
+		* If the distinction between 0 and positive isn't requires it's better to use 'signbit()' from cmath
+		*/
+		static int GetSign(double num);
 
 		/**
 		* Returns the sum of the list elements: 
