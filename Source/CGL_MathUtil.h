@@ -24,6 +24,12 @@ namespace CGL_Math
 		static int GetSign(double num);
 
 		/**
+		* Returns the clamped difference between num and thresh or num and -thresh depending on num sign:
+		* thresh is used as absolute value
+		*/
+		static double SignedThreshold(double num, double thresh);
+
+		/**
 		* Returns the sum of the list elements: 
 		*/
 		static double Sum(std::vector<double>& list);
@@ -51,14 +57,24 @@ namespace CGL_Math
 		static void ValsToWeightsSafe(std::vector<double>& list);
 
 		/**
-		* Sorts the vector 'indices' according to ascending order of the elements in the vector 'list'
+		* Sorts the vector 'indices' according to ascending order of the element values in the vector 'list'
 		*/
 		static void ValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
 		/**
-		* Sorts the vector 'indices' according to descending order of the elements in the vector 'list'
+		* Sorts the vector 'indices' according to descending order of the elements values in the vector 'list'
 		*/
 		static void ValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
+
+		/**
+		* Sorts the vector 'indices' according to ascending order of the element absolute values in the vector 'list'
+		*/
+		static void AbsValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
+
+		/**
+		* Sorts the vector 'indices' according to descending order of the element absolute values in the vector 'list'
+		*/
+		static void AbsValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
 		/**
 		* Combines the supllied 'vectors' using the supplied 'weights and updates the supplied 'combination' vector reference with the resulting vector: 
