@@ -40,9 +40,9 @@ namespace CGL_Math
 		static double SumAbs(std::vector<double>& list);
 
 		/**
-		* Retuns a value no less then 'min'and no greater then 'max'
+		* Retuns a value no less then 'minimum'and no greater then 'maximum'
 		*/
-		static double Clamp(double val, double min, double max);
+		static double Clamp(double val, double minimum, double maximum);
 
 		/**
 		* Converts the list of values to a normalized weight list (sum of 1.0):

@@ -46,22 +46,9 @@ namespace CGL_Math
 		return sum;
 	}
 
-	double CGL_MathUtil::Clamp(double val, double min, double max)
+	double CGL_MathUtil::Clamp(double num, double minimum, double maximum)
 	{
-		double result;
-		if (val < min)
-		{
-			result = min;
-		}
-		else if (val > max)
-		{
-			result = max;
-		}
-		else
-		{
-			result = val;
-		}
-		return result;
+		return std::max(minimum, std::min(num, maximum));
 	}
 	
 	void CGL_MathUtil::ValsToWeights(std::vector<double>& list)
