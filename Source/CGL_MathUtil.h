@@ -24,6 +24,16 @@ namespace CGL_Math
 		static int GetSign(double num);
 
 		/**
+		* Retuns a value no less then 'minimum'and no greater then 'maximum'
+		*/
+		static double Clamp(double val, double minimum, double maximum);
+
+		/**
+		* Retuns the mapped value from source range sa->sb to target range ta->tb
+		*/
+		static double MapRange(double num, double sa, double sb, double ta, double tb);
+
+		/**
 		* Returns the clamped difference between num and thresh or num and -thresh depending on num sign:
 		* thresh is used as absolute value
 		*/
@@ -39,10 +49,7 @@ namespace CGL_Math
 		*/
 		static double SumAbs(std::vector<double>& list);
 
-		/**
-		* Retuns a value no less then 'minimum'and no greater then 'maximum'
-		*/
-		static double Clamp(double val, double minimum, double maximum);
+
 
 		/**
 		* Converts the list of values to a normalized weight list (sum of 1.0):

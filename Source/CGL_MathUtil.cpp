@@ -51,6 +51,11 @@ namespace CGL_Math
 		return std::max(minimum, std::min(num, maximum));
 	}
 	
+	double CGL_MathUtil::MapRange(double num, double sa, double sb, double ta, double tb)
+	{
+		return ( ( (num - sa) / (sb - sa) ) * (tb - ta) ) + ta;
+	}
+
 	void CGL_MathUtil::ValsToWeights(std::vector<double>& list)
 	{
 		double mult = 1 / CGL_MathUtil::Sum(list);
