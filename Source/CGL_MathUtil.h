@@ -29,6 +29,11 @@ namespace CGL_Math
 		static double Clamp(double val, double minimum, double maximum);
 
 		/**
+		* Retuns a linearly interpolated value between a and b at t:
+		*/
+		static double Lerp(double a, double b, double t);
+
+		/**
 		* Retuns the mapped value from source range sa->sb to target range ta->tb
 		*/
 		static double MapRange(double num, double sa, double sb, double ta, double tb);

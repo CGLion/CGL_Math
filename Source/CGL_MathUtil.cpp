@@ -50,6 +50,11 @@ namespace CGL_Math
 	{
 		return std::max(minimum, std::min(num, maximum));
 	}
+
+	double CGL_MathUtil::Lerp(double a, double b, double t)
+	{
+		return ( a * (1.0 - t) ) +  (b * t );
+	}
 	
 	double CGL_MathUtil::MapRange(double num, double sa, double sb, double ta, double tb)
 	{
