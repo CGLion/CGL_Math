@@ -63,19 +63,45 @@ namespace CGL_Math
 
 	void CGL_MathUtil::ValsToWeights(std::vector<double>& list)
 	{
-		double mult = 1 / CGL_MathUtil::Sum(list);
-		for (auto& n : list)
+		double sum = CGL_MathUtil::Sum(list);
+		double factor;
+		if (sum > 0.0)
 		{
-			 n = n * mult;
+			factor = 1 / sum;
+			for (auto& n : list)
+			{
+				 n = n * factor;
+			}
+		}
+		else
+		{
+			factor = 1.0 / list.size();
+			for (auto& n : list)
+			{
+				n = factor;
+			}
 		}
 	}
 
 	void CGL_MathUtil::ValsToWeightsSafe(std::vector<double>& list)
 	{
-		double mult = 1 / CGL_MathUtil::SumAbs(list);
-		for (auto& n : list)
+		double sum = CGL_MathUtil::SumAbs(list);
+		double factor;
+		if (sum > 0.0)
 		{
-			n = n * mult;
+			factor = 1 / sum;
+			for (auto& n : list)
+			{
+				n = n * factor;
+			}
+		}
+		else
+		{
+			factor = 1 / list.size();
+			for (auto& n : list)
+			{
+				n = factor;
+			}
 		}
 	}
 

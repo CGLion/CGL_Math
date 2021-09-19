@@ -59,12 +59,14 @@ namespace CGL_Math
 		/**
 		* Converts the list of values to a normalized weight list (sum of 1.0):
 		* Counts on user context to provide only positive values.
+		* If the list contains only 0s the weights will be 1 / num of elements
 		*/
 		static void ValsToWeights(std::vector<double>& list);
 
 		/**
 		* Converts the list of values to a normalized weight list (sum of 1.0):
 		* Uses absolute values.
+		* If the list contains only 0s the weights will be 1 / num of elements
 		*/
 		static void ValsToWeightsSafe(std::vector<double>& list);
 
