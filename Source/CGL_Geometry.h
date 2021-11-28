@@ -9,6 +9,9 @@ using namespace CGL_Math::CGL_Values;
 
 namespace CGL_Math
 {
+	/**
+	 * @brief A collection of static geometry operations
+	*/
 	class CGL_Geometry
 	{
 		public:

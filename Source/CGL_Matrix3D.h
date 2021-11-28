@@ -16,7 +16,9 @@ namespace CGL_Math
 	{
 		enum MatrixLookAtAxis { X, Y, Z };
 
-
+		/**
+		 * @brief The CGL_Matrix3D class represents a 4X4 matrix
+		*/
 		class CGL_Matrix3D
 		{
 		public:
@@ -32,7 +34,7 @@ namespace CGL_Math
 			~CGL_Matrix3D();
 
 			/**
-			* Set the matrixe's raw numerical data using a vector<double> where every 4 components are will be a row 
+			* Set the matrixe's raw numerical data using a vector<double> where every 4 components will be a row 
 			*/
 			void SetData(vector<double> _Data);
 

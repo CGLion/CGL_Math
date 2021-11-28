@@ -8,11 +8,16 @@ using namespace CGL_Math::CGL_Values;
 
 namespace CGL_Math
 {
+	/**
+	 * @brief A collection of static math utilities
+	 * 
+	*/
 	class CGL_MathUtil
 	{
 	public:
 		/**
-		* Returns true if the supplied number is an integer
+		* Returns true if the supplied number represents an integer
+		* @param num an input double value  
 		*/
 		static bool CheckInt(double num);
 
