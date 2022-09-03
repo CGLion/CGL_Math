@@ -144,13 +144,13 @@ namespace CGL_Math
 			}
 
 			// Returns the X coordinate for the supplied polar coordinate point (in Radians!!):
-			static inline double PolarX(double _AngleRadians, double _Length)
+			static inline double PolarX(double _AngleRadians, double _Length = 1.0)
 			{
 				return(cos(_AngleRadians) * _Length);
 			}
 
 			// Returns the Y coordinate for the supplied polar coordinate point (in Radians!!):
-			static inline double PolarY(double _AngleRadians, double _Length)
+			static inline double PolarY(double _AngleRadians, double _Length = 1.0)
 			{
 				return(sin(_AngleRadians) * _Length);
 			}
