@@ -113,6 +113,18 @@ namespace CGL_Math
 		* Combines the supllied 'vectors' using the supplied 'weights and updates the supplied 'combination' vector reference with the resulting vector: 
 		*/
 		static void CombineVectors(const std::vector<CGL_Vector3D>& vectors, const std::vector<double>& weights, CGL_Vector3D& combination);
+
+		/**
+		* Generate a random double value in range 0.0 -> 1.0
+		* This function uses the std rand function internaly without managing the seed
+		*/
+		static double RandNum();
+
+		/**
+		* Generate a random unit vector
+		* This function uses the std rand function internaly without managing the seed
+		*/
+		static CGL_Values::CGL_Vector3D* RandDir3D();
 	};
 }
 

@@ -1,4 +1,5 @@
 #include "CGL_MathUtil.h"
+#include "CGL_Geometry.h"
 #include <cmath>
 #include <vector>
 #include <algorithm>
@@ -159,5 +160,20 @@ namespace CGL_Math
 			combination.Y += vectors[i].Y * weights[i];
 			combination.Z += vectors[i].Z * weights[i];
 		}
+	}
+	double CGL_MathUtil::RandNum()
+	{
+		return (double)rand() / (double)RAND_MAX;
+	}
+
+	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandDir3D()
+	{
+		double radLatAngle = RandNum() * CONST_PI - CONST_PI_05;
+		double Z = CGL_Geometry::PolarY(radLatAngle);
+		double XYLength = CGL_Geometry::PolarX(radLatAngle);
+		double radLongAngle = RandNum() * CONST_PI_2 - CONST_PI;
+		double X = CGL_Geometry::PolarX(radLongAngle, XYLength);
+		double Y = CGL_Geometry::PolarY(radLongAngle, XYLength);
+		return new CGL_Values::CGL_Vector3D(X, Y, Z, 0.0);
 	}
 }
