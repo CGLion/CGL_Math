@@ -15,6 +15,20 @@ namespace CGL_Math
 	class CGL_MathUtil
 	{
 	public:
+
+		/**
+		* PI constant
+		*/
+		static constexpr double CONST_PI = 3.1415926535897932384626433832795;
+		/**
+		* PI X 2 constant
+		*/
+		static constexpr double CONST_PI_2 = 6.283185307179586476925286766559;
+		/**
+		* PI X 0.5 constant (half PI)
+		*/
+		static constexpr double CONST_PI_05 = 1.5707963267948966192313216916398;
+
 		/**
 		* Returns true if the supplied number represents an integer
 		* @param num an input double value  
