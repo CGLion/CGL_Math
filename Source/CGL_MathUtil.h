@@ -122,7 +122,8 @@ namespace CGL_Math
 
 		/**
 		* Generate a random unit vector
-		* This function uses the std rand function internaly without managing the seed
+		* This function uses instances of std random_device, mt19937 and normal_dostribution
+		* Instancing these objects per every call works but better be checked 
 		*/
 		static CGL_Values::CGL_Vector3D* RandDir3D();
 	};

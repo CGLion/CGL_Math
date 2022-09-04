@@ -1,5 +1,6 @@
 #include "CGL_MathUtil.h"
 #include "CGL_Geometry.h"
+#include <random>
 #include <cmath>
 #include <vector>
 #include <algorithm>
@@ -168,12 +169,14 @@ namespace CGL_Math
 
 	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandDir3D()
 	{
-		double radLatAngle = RandNum() * CONST_PI - CONST_PI_05;
-		double Z = CGL_Geometry::PolarY(radLatAngle);
-		double XYLength = CGL_Geometry::PolarX(radLatAngle);
-		double radLongAngle = RandNum() * CONST_PI_2 - CONST_PI;
-		double X = CGL_Geometry::PolarX(radLongAngle, XYLength);
-		double Y = CGL_Geometry::PolarY(radLongAngle, XYLength);
-		return new CGL_Values::CGL_Vector3D(X, Y, Z, 0.0);
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::normal_distribution<double> distribution(0.0, 1.0);
+		double X = distribution(gen);
+		double Y = distribution(gen);
+		double Z = distribution(gen);
+		CGL_Values::CGL_Vector3D* newVec = new CGL_Values::CGL_Vector3D(X, Y, Z, 0.0);
+		newVec->Normalize();
+		return newVec;
 	}
 }
