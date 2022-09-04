@@ -179,4 +179,13 @@ namespace CGL_Math
 		newVec->Normalize();
 		return newVec;
 	}
+
+
+	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandVec(double minLength, double maxLength)
+	{
+		double len = Lerp(minLength, maxLength, RandNum());
+		CGL_Values::CGL_Vector3D* newVec = RandDir3D();
+		newVec->ScaleBy(len);
+		return newVec;
+	}
 }
