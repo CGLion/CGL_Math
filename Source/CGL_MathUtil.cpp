@@ -162,12 +162,12 @@ namespace CGL_Math
 			combination.Z += vectors[i].Z * weights[i];
 		}
 	}
-	double CGL_MathUtil::RandNum()
+	double CGL_MathUtil::RandomFloat()
 	{
 		return (double)rand() / (double)RAND_MAX;
 	}
 
-	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandDir3D()
+	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandomDirection3D()
 	{
 		std::random_device rd;
 		std::mt19937 gen(rd());
@@ -181,10 +181,10 @@ namespace CGL_Math
 	}
 
 
-	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandVec(double minLength, double maxLength)
+	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandomVector3D(double minLength, double maxLength)
 	{
-		double len = Lerp(minLength, maxLength, RandNum());
-		CGL_Values::CGL_Vector3D* newVec = RandDir3D();
+		double len = Lerp(minLength, maxLength, RandomFloat());
+		CGL_Values::CGL_Vector3D* newVec = RandomDirection3D();
 		newVec->ScaleBy(len);
 		return newVec;
 	}
