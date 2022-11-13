@@ -57,6 +57,18 @@ namespace CGL_Math
 	{
 		return ( a * (1.0 - t) ) +  (b * t );
 	}
+
+	double CGL_MathUtil::InvLerp(double a, double b, double v)
+	{
+		if (b != a)
+		{
+			return (v - a) / (b - a);
+		}
+		else
+		{
+			return 0.0;
+		}
+	}
 	
 	double CGL_MathUtil::MapRange(double num, double sa, double sb, double ta, double tb)
 	{

@@ -53,6 +53,11 @@ namespace CGL_Math
 		static double Lerp(double a, double b, double t);
 
 		/**
+		* Retuns the t value at which interpolating between a and b would result in v:
+		*/
+		static double InvLerp(double a, double b, double v);
+
+		/**
 		* Retuns the mapped value from source range sa->sb to target range ta->tb
 		*/
 		static double MapRange(double num, double sa, double sb, double ta, double tb);
