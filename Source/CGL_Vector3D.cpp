@@ -139,7 +139,7 @@ using namespace CGL_Math::CGL_Values;
 
 	double CGL_Vector3D::GetLength() const
 	{
-		return (sqrt(pow(X, 2.0) + pow(Y, 2.0) + pow(Z, 2.0)));
+		return sqrt(X*X + Y*Y + Z*Z);
 	}
 
 	std::string CGL_Vector3D::ToString()
