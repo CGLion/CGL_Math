@@ -103,7 +103,7 @@ namespace CGL_Math
 		double factor;
 		if (sum > 0.0)
 		{
-			factor = 1 / sum;
+			factor = 1.0 / sum;
 			for (auto& n : list)
 			{
 				n = n * factor;
@@ -111,7 +111,7 @@ namespace CGL_Math
 		}
 		else
 		{
-			factor = 1 / list.size();
+			factor = 1.0 / (double)list.size();
 			for (auto& n : list)
 			{
 				n = factor;
