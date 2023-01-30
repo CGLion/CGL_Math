@@ -121,6 +121,7 @@ namespace CGL_Math
 
 	void CGL_MathUtil::ValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices)
 	{
+		indices.resize(list.size());
 		for (uint_fast16_t i = 0; i < list.size(); i++)
 		{
 			indices[i] = i;
@@ -131,6 +132,7 @@ namespace CGL_Math
 
 	void CGL_MathUtil::ValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices)
 	{
+		indices.resize(list.size());
 		for (uint_fast16_t i = 0; i < list.size(); i++)
 		{
 			indices[i] = i;
@@ -142,6 +144,7 @@ namespace CGL_Math
 
 	void CGL_MathUtil::AbsValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices)
 	{
+		indices.resize(list.size());
 		for (uint_fast16_t i = 0; i < list.size(); i++)
 		{
 			indices[i] = i;
@@ -152,6 +155,7 @@ namespace CGL_Math
 
 	void CGL_MathUtil::AbsValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices)
 	{
+		indices.resize(list.size());
 		for (uint_fast16_t i = 0; i < list.size(); i++)
 		{
 			indices[i] = i;

@@ -96,21 +96,29 @@ namespace CGL_Math
 
 		/**
 		* Sorts the vector 'indices' according to ascending order of the element values in the vector 'list'
+		* 'indices' is intended to be the size of 'list' and is resized to it to be sure.
+		* if 'indices' is smaller, this may cause re-allocation and impact performance
 		*/
 		static void ValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
 		/**
 		* Sorts the vector 'indices' according to descending order of the elements values in the vector 'list'
+		* 'indices' is intended to be the size of 'list' and is resized to it to be sure.
+		* if 'indices' is smaller, this may cause re-allocation and impact performance
 		*/
 		static void ValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
 		/**
 		* Sorts the vector 'indices' according to ascending order of the element absolute values in the vector 'list'
+		* 'indices' is intended to be the size of 'list' and is resized to it to be sure.
+		* if 'indices' is smaller, this may cause re-allocation and impact performance
 		*/
 		static void AbsValsToSortedIndicesAscending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
 		/**
 		* Sorts the vector 'indices' according to descending order of the element absolute values in the vector 'list'
+		* 'indices' is intended to be the size of 'list' and is resized to it to be sure.
+		* if 'indices' is smaller, this may cause re-allocation and impact performance
 		*/
 		static void AbsValsToSortedIndicesDescending(const std::vector<double>& list, std::vector<uint_fast16_t>& indices);
 
