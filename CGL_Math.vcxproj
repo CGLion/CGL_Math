@@ -111,7 +111,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CGL_Statistics.cpp" />
+    <ClCompile Include="source\CGL_Statistics.cpp" />
     <ClCompile Include="source\CGL_CubicBezierCurve3D.cpp" />
     <ClCompile Include="source\CGL_CubicBezierPath3D.cpp" />
     <ClCompile Include="source\CGL_CubicBezierPath3DSurface.cpp" />
@@ -124,7 +124,7 @@
     <ClCompile Include="source\CGL_Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CGL_Statistics.h" />
+    <ClInclude Include="source\CGL_Statistics.h" />
     <ClInclude Include="source\CGL_CubicBezierCurve3D.h" />
     <ClInclude Include="source\CGL_CubicBezierPath3D.h" />
     <ClInclude Include="source\CGL_CubicBezierPath3DSurface.h" />

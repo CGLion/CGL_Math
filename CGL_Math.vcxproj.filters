@@ -45,7 +45,7 @@
     <ClCompile Include="source\CGL_Vector3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CGL_Statistics.cpp">
+    <ClCompile Include="source\CGL_Statistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClInclude Include="source\CGL_Vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CGL_Statistics.h">
+    <ClInclude Include="source\CGL_Statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
