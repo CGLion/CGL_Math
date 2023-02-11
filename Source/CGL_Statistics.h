@@ -7,7 +7,7 @@ namespace CGL_Math
 	class CGL_Statistics
 	{
 	public:
-		static uint_fast32_t medianIndex(std::vector<double>& numList);
+		static std::pair<uint32_t, uint32_t> medianIndex(std::vector<double>& numList);
 
 		static double median(std::vector<double>& numList);
 	};

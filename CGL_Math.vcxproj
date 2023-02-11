@@ -111,6 +111,10 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\CGL_iVector3D.cpp" />
+    <ClCompile Include="Source\CGL_KDTree.cpp" />
+    <ClCompile Include="Source\CGL_KDTreeNode.cpp" />
+    <ClCompile Include="Source\CGL_PointCloud.cpp" />
     <ClCompile Include="source\CGL_Statistics.cpp" />
     <ClCompile Include="source\CGL_CubicBezierCurve3D.cpp" />
     <ClCompile Include="source\CGL_CubicBezierPath3D.cpp" />
@@ -124,6 +128,10 @@
     <ClCompile Include="source\CGL_Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\CGL_iVector3D.h" />
+    <ClInclude Include="Source\CGL_KDTree.h" />
+    <ClInclude Include="Source\CGL_KDTreeNode.h" />
+    <ClInclude Include="Source\CGL_PointCloud.h" />
     <ClInclude Include="source\CGL_Statistics.h" />
     <ClInclude Include="source\CGL_CubicBezierCurve3D.h" />
     <ClInclude Include="source\CGL_CubicBezierPath3D.h" />
