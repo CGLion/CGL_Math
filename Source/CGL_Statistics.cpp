@@ -7,7 +7,7 @@ namespace CGL_Math
 {
 	std::pair<uint32_t, uint32_t> CGL_Statistics::medianIndex(std::vector<double>& numList)
 	{
-		return std::pair<uint32_t, uint32_t> (0, 0);
+		return std::pair<uint_fast32_t, uint_fast32_t> (0, 0);
 	}
 
 	double CGL_Statistics::median(std::vector<double>& numList)
