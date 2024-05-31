@@ -18,7 +18,7 @@ namespace CGL_Math
 			static const CGL_Vector3D WORLD_Z;
 
 
-			CGL_Vector3D(double _X = 0.0, double _Y = 0.0, double _Z = 0.0, double _W = 0.0);
+			CGL_Vector3D(double _X = 0.0, double _Y = 0.0, double _Z = 0.0, double _W = 1.0);
 			double X, Y, Z, W;
 
 			/**
