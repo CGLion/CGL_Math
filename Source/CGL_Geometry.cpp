@@ -167,7 +167,7 @@ namespace CGL_Math
 		WorldTransform.SetXAxis(_ParentTransform.DeltaTransformVector(_ChildTransform.GetXAxis()));
 		WorldTransform.SetYAxis(_ParentTransform.DeltaTransformVector(_ChildTransform.GetYAxis()));
 		WorldTransform.SetZAxis(_ParentTransform.DeltaTransformVector(_ChildTransform.GetZAxis()));
-		WorldTransform.SetPosition(_ParentTransform.DeltaTransformVector(_ChildTransform.GetPosition()));
+		WorldTransform.SetTranslation(_ParentTransform.DeltaTransformVector(_ChildTransform.GetTranslation()));
 
 		return WorldTransform;
 	}

@@ -41,13 +41,13 @@ namespace CGL_Math
 			CGL_Vector3D GetXAxis() const;
 			CGL_Vector3D GetYAxis() const;
 			CGL_Vector3D GetZAxis() const;
-			CGL_Vector3D GetPosition() const;
+			CGL_Vector3D GetTranslation() const;
 
 
 			void SetXAxis(const CGL_Vector3D& _XAxis);
 			void SetYAxis(const CGL_Vector3D& _YAxis);
 			void SetZAxis(const CGL_Vector3D& _ZAxis);
-			void SetPosition(const CGL_Vector3D& _Position);
+			void SetTranslation(const CGL_Vector3D& _Position);
 
 			/**
 			* Multiply the matrix with a scalar value

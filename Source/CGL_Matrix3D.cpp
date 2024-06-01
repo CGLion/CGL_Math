@@ -35,7 +35,7 @@ CGL_Vector3D CGL_Matrix3D::GetZAxis() const
 	return CGL_Vector3D(Data[M(0, 2)], Data[M(1, 2)], Data[M(2, 2)], Data[M(3, 2)]);
 }
 
-CGL_Vector3D CGL_Matrix3D::GetPosition() const
+CGL_Vector3D CGL_Matrix3D::GetTranslation() const
 {
 	return CGL_Vector3D(Data[M(0, 3)], Data[M(1, 3)], Data[M(2, 3)], Data[M(3, 3)]);
 }
@@ -64,7 +64,7 @@ void CGL_Matrix3D::SetZAxis(const CGL_Vector3D& _ZAxis)
 	Data[M(3, 2)] = _ZAxis.W;
 }
 
-void CGL_Matrix3D::SetPosition(const CGL_Vector3D& _Position)
+void CGL_Matrix3D::SetTranslation(const CGL_Vector3D& _Position)
 {
 	Data[M(0, 3)] = _Position.X;
 	Data[M(1, 3)] = _Position.Y;
@@ -168,7 +168,7 @@ CGL_Vector3D CGL_Matrix3D::DeltaTransformVector(const CGL_Vector3D& _Vector) con
 
 void CGL_Matrix3D::LookAt(const CGL_Vector3D & _LookAtTarget, const CGL_Vector3D & _UpVector, int _LookAtAxis)
 {
-	Data = GenerateLookAtData(GetPosition(), _LookAtTarget, _UpVector,_LookAtAxis);
+	Data = GenerateLookAtData(GetTranslation(), _LookAtTarget, _UpVector,_LookAtAxis);
 }
 
 CGL_Vector3D CGL_Matrix3D::RotationToQuat() const
@@ -246,14 +246,14 @@ CGL_Matrix3D* CGL_Matrix3D::Interpolate(const CGL_Matrix3D & _BaseMatrix, const 
 {
 	CGL_Matrix3D* NewMatrix = new CGL_Matrix3D();
 	NewMatrix->RotationFromQuat(CGL_Geometry::Slerp(_BaseMatrix.RotationToQuat(), _TargetMatrix.RotationToQuat(), _T));
-	NewMatrix->SetPosition(CGL_Geometry::Interpolate3D(_BaseMatrix.GetPosition(), _TargetMatrix.GetPosition(), _T));
+	NewMatrix->SetTranslation(CGL_Geometry::Interpolate3D(_BaseMatrix.GetTranslation(), _TargetMatrix.GetTranslation(), _T));
 	return NewMatrix;
 }
 
 void CGL_Matrix3D::InterpolateTo(const CGL_Matrix3D & _TargetMatrix, double _T)
 {
 	RotationFromQuat(CGL_Geometry::Slerp(RotationToQuat(), _TargetMatrix.RotationToQuat(),_T));
-	SetPosition(CGL_Geometry::Interpolate3D(GetPosition(),_TargetMatrix.GetPosition(), _T));
+	SetTranslation(CGL_Geometry::Interpolate3D(GetTranslation(),_TargetMatrix.GetTranslation(), _T));
 }
 
 double CGL_Matrix3D::GetData(int _Row, int _Column) const
@@ -269,7 +269,7 @@ void CGL_Matrix3D::SetData(vector<double> _Data)
 std::string CGL_Matrix3D::ToString() const
 {
 	std::ostringstream Convert;
-	Convert << "CGL_Matrix3D v0.1:( " << GetXAxis().ToString() << " , " << GetYAxis().ToString() << " , " << GetZAxis().ToString() << " , " << GetPosition().ToString() << " )";
+	Convert << "CGL_Matrix3D v0.1:( " << GetXAxis().ToString() << " , " << GetYAxis().ToString() << " , " << GetZAxis().ToString() << " , " << GetTranslation().ToString() << " )";
 	return Convert.str();
 }
 

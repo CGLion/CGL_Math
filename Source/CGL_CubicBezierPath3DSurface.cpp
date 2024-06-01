@@ -17,7 +17,7 @@ namespace CGL_Math
 				{
 				case 0:
 				{
-					PathPoints.push_back(Knots->at(int(i / 3)).GetPosition());
+					PathPoints.push_back(Knots->at(int(i / 3)).GetTranslation());
 					break;
 				}
 				case 1:
@@ -61,7 +61,7 @@ namespace CGL_Math
 			//upVector.scaleBy( -1);
 
 			CGL_Matrix3D* NewMatrix = new CGL_Matrix3D();
-			NewMatrix->SetPosition(Ray.Position);
+			NewMatrix->SetTranslation(Ray.Position);
 			
 			CGL_Vector3D LookAtTarget = Ray.Position.Clone();
 			LookAtTarget.Add(Ray.Direction);
@@ -114,7 +114,7 @@ namespace CGL_Math
 			CGL_Vector3D Point = CGL_Vector3D(0.0f, (-Width * 0.5) + _U * Width, _W, 0.0f);
 			CGL_Matrix3D* Matrix = GetMatrixAt(_V, Precision);
 			Point = Matrix->TransformVector(Point);
-			Matrix->SetPosition(Point);
+			Matrix->SetTranslation(Point);
 			return Matrix;
 		}
 		CGL_Vector3D CGL_CubicBezierPath3DSurface::GetPointOnSurface(double _U, double _V, double _W) const

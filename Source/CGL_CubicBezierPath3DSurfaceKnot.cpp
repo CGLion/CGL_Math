@@ -35,13 +35,13 @@ namespace CGL_Math
 		{
 			CGL_Vector3D Tangent = this->GetYAxis();
 			Tangent.ScaleBy(ForwardTangent);
-			return CGL_Ray(this->GetPosition(), Tangent);
+			return CGL_Ray(this->GetTranslation(), Tangent);
 		}
 		const CGL_Ray CGL_CubicBezierPath3DSurfaceKnot::GetBackwardTangent()
 		{
 			CGL_Vector3D Tangent = this->GetYAxis();
 			Tangent.ScaleBy(-BackwardTangent);
-			return CGL_Ray(this->GetPosition(), Tangent);
+			return CGL_Ray(this->GetTranslation(), Tangent);
 		}
 	}
 }
