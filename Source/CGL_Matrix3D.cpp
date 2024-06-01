@@ -35,9 +35,14 @@ CGL_Vector3D CGL_Matrix3D::GetZAxis() const
 	return CGL_Vector3D(Data[M(0, 2)], Data[M(1, 2)], Data[M(2, 2)], Data[M(3, 2)]);
 }
 
-CGL_Vector3D CGL_Matrix3D::GetTranslation() const
+CGL_Vector3D CGL_Math::CGL_Values::CGL_Matrix3D::GetWAxis() const
 {
 	return CGL_Vector3D(Data[M(0, 3)], Data[M(1, 3)], Data[M(2, 3)], Data[M(3, 3)]);
+}
+
+CGL_Vector3D CGL_Matrix3D::GetTranslation() const
+{
+	return this->GetWAxis();
 }
 
 void CGL_Matrix3D::SetXAxis(const CGL_Vector3D& _XAxis)
@@ -64,12 +69,17 @@ void CGL_Matrix3D::SetZAxis(const CGL_Vector3D& _ZAxis)
 	Data[M(3, 2)] = _ZAxis.W;
 }
 
-void CGL_Matrix3D::SetTranslation(const CGL_Vector3D& _Position)
+void CGL_Math::CGL_Values::CGL_Matrix3D::SetWAxis(const CGL_Vector3D& _ZAxis)
 {
-	Data[M(0, 3)] = _Position.X;
-	Data[M(1, 3)] = _Position.Y;
-	Data[M(2, 3)] = _Position.Z;
-	Data[M(3, 3)] = 1.0;
+	Data[M(0, 3)] = _ZAxis.X;
+	Data[M(1, 3)] = _ZAxis.Y;
+	Data[M(2, 3)] = _ZAxis.Z;
+	Data[M(3, 3)] = _ZAxis.W;
+}
+
+void CGL_Matrix3D::SetTranslation(const CGL_Vector3D& _translation)
+{
+	this->SetWAxis(_translation);
 }
 
 void CGL_Matrix3D::Scale(double _Scalar)
