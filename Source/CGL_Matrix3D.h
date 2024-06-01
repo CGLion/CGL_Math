@@ -67,15 +67,19 @@ namespace CGL_Math
 			bool Invert();
 
 			/**
-			* Returns the world coordinates of the vector relative to the matrix
+			* Returns the world coordinates of the supplied vector in this matrix space
 			*/
 			CGL_Vector3D TransformVector(const CGL_Vector3D& _Vector) const;
 
 			/**
-			* Returns the world coordinates of the vector relative to the matrix disregarding the matrix position
+			* Returns the world coordinates of the supplied vector in this matrix space disregarding the matrix position
 			*/
 			CGL_Vector3D DeltaTransformVector(const CGL_Vector3D& _Vector) const;
 
+			/**
+			* Multiplies the supplied matrix with this and returns the resulting matrix
+			*/
+			CGL_Matrix3D TransformMatrix(const CGL_Matrix3D& _Matrix) const;
 			
 			/**
 			* Orients the matrix so its _LookAtAxis (0 = X, 1 = Y, 2 = Z) will be pointing at the _LookAtTarget  

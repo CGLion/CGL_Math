@@ -176,6 +176,16 @@ CGL_Vector3D CGL_Matrix3D::DeltaTransformVector(const CGL_Vector3D& _Vector) con
 		);
 }
 
+CGL_Matrix3D CGL_Math::CGL_Values::CGL_Matrix3D::TransformMatrix(const CGL_Matrix3D& _Matrix) const
+{
+	CGL_Matrix3D mtx = CGL_Matrix3D();
+	mtx.SetXAxis( this->TransformVector(_Matrix.GetXAxis()) );
+	mtx.SetYAxis( this->TransformVector(_Matrix.GetYAxis()) );
+	mtx.SetZAxis( this->TransformVector(_Matrix.GetZAxis()) );
+	mtx.SetWAxis( this->TransformVector(_Matrix.GetWAxis()) );
+	return mtx;
+}
+
 void CGL_Matrix3D::LookAt(const CGL_Vector3D & _LookAtTarget, const CGL_Vector3D & _UpVector, int _LookAtAxis)
 {
 	Data = GenerateLookAtData(GetTranslation(), _LookAtTarget, _UpVector,_LookAtAxis);
