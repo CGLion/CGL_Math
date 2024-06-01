@@ -156,6 +156,17 @@ bool CGL_Matrix3D::Invert()
 	}
 }
 
+void CGL_Math::CGL_Values::CGL_Matrix3D::Transpose()
+{
+	std::vector<double> newData = {
+		this->Data.at(0), this->Data.at(4), this->Data.at(8), this->Data.at(12),
+		this->Data.at(1), this->Data.at(5), this->Data.at(9), this->Data.at(13),
+		this->Data.at(2), this->Data.at(6), this->Data.at(10), this->Data.at(14),
+		this->Data.at(3), this->Data.at(7), this->Data.at(11), this->Data.at(15)
+	};
+	this->SetData(newData);
+}
+
 CGL_Vector3D CGL_Matrix3D::TransformVector(const CGL_Vector3D& _Vector) const
 {
 	return CGL_Vector3D(

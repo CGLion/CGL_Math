@@ -67,6 +67,11 @@ namespace CGL_Math
 			bool Invert();
 
 			/**
+			* Transposes the Matrix
+			*/
+			void Transpose();
+
+			/**
 			* Returns the world coordinates of the supplied vector in this matrix space
 			*/
 			CGL_Vector3D TransformVector(const CGL_Vector3D& _Vector) const;
