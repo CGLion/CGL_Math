@@ -149,9 +149,10 @@ bool CGL_Matrix3D::Invert()
 CGL_Vector3D CGL_Matrix3D::TransformVector(const CGL_Vector3D& _Vector) const
 {
 	return CGL_Vector3D(
-		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(0, 1)]) + (_Vector.Z * Data[M(0, 2)]) ) + Data[M(0, 3)],
-		( (_Vector.X * Data[M(1, 0)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(1, 2)]) ) + Data[M(1, 3)],
-		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) ) + Data[M(2, 3)]
+		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(0, 1)]) + (_Vector.Z * Data[M(0, 2)]) + (_Vector.W * Data[M(0, 3)]) ),
+		( (_Vector.X * Data[M(1, 0)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(1, 2)]) + (_Vector.W * Data[M(1, 3)]) ),
+		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) + (_Vector.W * Data[M(2, 3)]) ),
+		( (_Vector.X * Data[M(3, 0)]) + (_Vector.Y * Data[M(3, 1)]) + (_Vector.Z * Data[M(3, 2)]) + (_Vector.W * Data[M(3, 3)]) )
 		);
 }
 
@@ -160,7 +161,8 @@ CGL_Vector3D CGL_Matrix3D::DeltaTransformVector(const CGL_Vector3D& _Vector) con
 	return CGL_Vector3D(
 		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(0, 1)]) + (_Vector.Z * Data[M(0, 2)]) ),
 		( (_Vector.X * Data[M(1, 0)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(1, 2)]) ),
-		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) )
+		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) ),
+		( (_Vector.X * Data[M(3, 0)]) + (_Vector.Y * Data[M(3, 1)]) + (_Vector.Z * Data[M(3, 2)]) )
 		);
 }
 
