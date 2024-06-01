@@ -191,8 +191,9 @@ namespace CGL_Math
 		double X = distribution(gen);
 		double Y = distribution(gen);
 		double Z = distribution(gen);
-		CGL_Values::CGL_Vector3D* newVec = new CGL_Values::CGL_Vector3D(X, Y, Z, 0.0);
+		CGL_Values::CGL_Vector3D* newVec = new CGL_Values::CGL_Vector3D(X, Y, Z, 1.0);
 		newVec->Normalize();
+		newVec->W = 1.0;
 		return newVec;
 	}
 
