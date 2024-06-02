@@ -96,7 +96,7 @@ namespace CGL_Math
 			static CGL_Matrix3D* Interpolate(const CGL_Matrix3D& _BaseMatrix, const CGL_Matrix3D& _TargetMatrix, double _T);
 			void InterpolateTo(const CGL_Matrix3D & _TargetMatrix, double _T);
 
-			double GetValue(int _Row, int _Column) const;
+			double GetValue(int _Column, int _Row) const;
 
 
 			/**

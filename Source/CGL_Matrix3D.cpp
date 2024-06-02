@@ -281,9 +281,9 @@ void CGL_Matrix3D::InterpolateTo(const CGL_Matrix3D & _TargetMatrix, double _T)
 	SetTranslation(CGL_Geometry::Interpolate3D(GetTranslation(),_TargetMatrix.GetTranslation(), _T));
 }
 
-double CGL_Matrix3D::GetValue(int _Row, int _Column) const
+double CGL_Matrix3D::GetValue(int _Column, int _Row) const
 {
-	return Data[M(_Row,_Column)];
+	return Data[M(_Column, _Row)];
 }
 
 void CGL_Matrix3D::SetData(vector<double> _Data)
