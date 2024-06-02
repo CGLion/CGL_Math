@@ -303,12 +303,12 @@ inline int CGL_Matrix3D::M( int _Column, int _Row) const
 	return ( ( 4 * (_Column) ) + _Row);
 }
 
-vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Position,
+vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Translation,
 												const CGL_Vector3D &_LookAtTarget,
 												const CGL_Vector3D &_UpVector,
 												int _LookAtAxis)
 {
-	CGL_Vector3D RollAxis = CGL_Vector3D::VectorSubtraction(_LookAtTarget, _Position );
+	CGL_Vector3D RollAxis = CGL_Vector3D::VectorSubtraction(_LookAtTarget, _Translation );
 	RollAxis.Normalize();
 
 	CGL_Vector3D PitchAxis = CGL_Vector3D::Cross(_UpVector, RollAxis );
@@ -317,9 +317,9 @@ vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Position,
 	CGL_Vector3D YawAxis = CGL_Vector3D::Cross(RollAxis,PitchAxis);
 	YawAxis.Normalize();
 
-	RollAxis.W = -(CGL_Vector3D::Dot(RollAxis,_Position));
-	PitchAxis.W = -(CGL_Vector3D::Dot(PitchAxis, _Position));
-	YawAxis.W = -(CGL_Vector3D::Dot(YawAxis, _Position));
+	RollAxis.W = -(CGL_Vector3D::Dot(RollAxis,_Translation));
+	PitchAxis.W = -(CGL_Vector3D::Dot(PitchAxis, _Translation));
+	YawAxis.W = -(CGL_Vector3D::Dot(YawAxis, _Translation));
 
 	vector<double> Data{	1.0,0.0,0.0,0.0,
 							0.0,1.0,0.0,0.0,
@@ -327,23 +327,23 @@ vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Position,
 							0.0,0.0,0.0,1.0		};
 	
 	Data[ 0 + _LookAtAxis] = RollAxis.X;
-	Data[ 4 + _LookAtAxis] = RollAxis.Y;
-	Data[ 8 + _LookAtAxis] = RollAxis.Z;
-	Data[12 + _LookAtAxis] = RollAxis.W;
+	Data[ 1 + _LookAtAxis] = RollAxis.Y;
+	Data[ 2 + _LookAtAxis] = RollAxis.Z;
+	Data[ 3 + _LookAtAxis] = RollAxis.W;
 
 	Data[ 0 + ((_LookAtAxis + 1) % 3)] = PitchAxis.X;
-	Data[ 4 + ((_LookAtAxis + 1) % 3)] = PitchAxis.Y;
-	Data[ 8 + ((_LookAtAxis + 1) % 3)] = PitchAxis.Z;
-	Data[12 + ((_LookAtAxis + 1) % 3)] = PitchAxis.W;
+	Data[ 1 + ((_LookAtAxis + 1) % 3)] = PitchAxis.Y;
+	Data[ 2 + ((_LookAtAxis + 1) % 3)] = PitchAxis.Z;
+	Data[ 3 + ((_LookAtAxis + 1) % 3)] = PitchAxis.W;
 
 	Data[ 0 + ((_LookAtAxis + 2) % 3)] = YawAxis.X;
-	Data[ 4 + ((_LookAtAxis + 2) % 3)] = YawAxis.Y;
-	Data[ 8 + ((_LookAtAxis + 2) % 3)] = YawAxis.Z;
-	Data[12 + ((_LookAtAxis + 2) % 3)] = YawAxis.W;
+	Data[ 1 + ((_LookAtAxis + 2) % 3)] = YawAxis.Y;
+	Data[ 2 + ((_LookAtAxis + 2) % 3)] = YawAxis.Z;
+	Data[ 3 + ((_LookAtAxis + 2) % 3)] = YawAxis.W;
 
-	Data[3] = _Position.X;
-	Data[7] = _Position.Y;
-	Data[11] = _Position.Z;
+	Data[12] = _Translation.X;
+	Data[13] = _Translation.Y;
+	Data[14] = _Translation.Z;
 	Data[15] = 1.0; //_Position.W Blah;
 
 	return Data;

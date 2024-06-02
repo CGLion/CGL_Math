@@ -51,10 +51,6 @@ namespace CGL_Math
 			void SetWAxis(const CGL_Vector3D& _ZAxis);
 			void SetTranslation(const CGL_Vector3D& _translation);
 
-			/**
-			* Multiply the matrix with a scalar value
-			*/
-			void Scale(double _Scalar);
 
 			/**
 			* Returns the determinant value of the matrix
