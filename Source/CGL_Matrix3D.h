@@ -36,7 +36,8 @@ namespace CGL_Math
 			/**
 			* Set the matrixe's raw numerical data using a vector<double> where every 4 components will be a column 
 			*/
-			void SetData(vector<double> _Data);
+			void SetData(const vector<double> _Data);
+			const vector<double> GetData();
 
 			CGL_Vector3D GetXAxis() const;
 			CGL_Vector3D GetYAxis() const;
@@ -95,7 +96,7 @@ namespace CGL_Math
 			static CGL_Matrix3D* Interpolate(const CGL_Matrix3D& _BaseMatrix, const CGL_Matrix3D& _TargetMatrix, double _T);
 			void InterpolateTo(const CGL_Matrix3D & _TargetMatrix, double _T);
 
-			double GetData(int _Row, int _Column) const;
+			double GetValue(int _Row, int _Column) const;
 
 
 			/**
