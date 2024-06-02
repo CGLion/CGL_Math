@@ -34,7 +34,7 @@ namespace CGL_Math
 			~CGL_Matrix3D();
 
 			/**
-			* Set the matrixe's raw numerical data using a vector<double> where every 4 components will be a row 
+			* Set the matrixe's raw numerical data using a vector<double> where every 4 components will be a column 
 			*/
 			void SetData(vector<double> _Data);
 
@@ -119,7 +119,7 @@ namespace CGL_Math
 			/**
 			* returns the 0 - 15 index corresponding to a 0 based col / row coordinates ( 0 - 3 )
 			*/
-			inline int M(int _Row, int _Column) const;
+			inline int M(int _Column, int _Row) const;
 
 			static vector<double> GenerateLookAtData(	const CGL_Vector3D &_Position,
 														const  CGL_Vector3D &_LookAtTarget,

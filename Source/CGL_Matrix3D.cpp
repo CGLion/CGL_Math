@@ -22,22 +22,22 @@ CGL_Matrix3D::~CGL_Matrix3D()
 
 CGL_Vector3D CGL_Matrix3D::GetXAxis() const
 {
-	return CGL_Vector3D(Data[M(0,0)], Data[M(1, 0)], Data[M(2, 0)], Data[M(3, 0)]);
+	return CGL_Vector3D(Data[M(0,0)], Data[M(0, 1)], Data[M(0, 2)], Data[M(0, 3)]);
 }
 
 CGL_Vector3D CGL_Matrix3D::GetYAxis() const
 {
-	return CGL_Vector3D(Data[M(0, 1)], Data[M(1, 1)], Data[M(2, 1)], Data[M(3, 1)]);
+	return CGL_Vector3D(Data[M(1, 0)], Data[M(1, 1)], Data[M(1, 2)], Data[M(1, 3)]);
 }
 
 CGL_Vector3D CGL_Matrix3D::GetZAxis() const
 {
-	return CGL_Vector3D(Data[M(0, 2)], Data[M(1, 2)], Data[M(2, 2)], Data[M(3, 2)]);
+	return CGL_Vector3D(Data[M(2, 0)], Data[M(2, 1)], Data[M(2, 2)], Data[M(2, 3)]);
 }
 
 CGL_Vector3D CGL_Math::CGL_Values::CGL_Matrix3D::GetWAxis() const
 {
-	return CGL_Vector3D(Data[M(0, 3)], Data[M(1, 3)], Data[M(2, 3)], Data[M(3, 3)]);
+	return CGL_Vector3D(Data[M(3, 0)], Data[M(3, 1)], Data[M(3, 2)], Data[M(3, 3)]);
 }
 
 CGL_Vector3D CGL_Matrix3D::GetTranslation() const
@@ -48,33 +48,33 @@ CGL_Vector3D CGL_Matrix3D::GetTranslation() const
 void CGL_Matrix3D::SetXAxis(const CGL_Vector3D& _XAxis)
 {
 	Data[M(0, 0)] = _XAxis.X;
-	Data[M(1, 0)] = _XAxis.Y;
-	Data[M(2, 0)] = _XAxis.Z;
-	Data[M(3, 0)] = _XAxis.W;
+	Data[M(0, 1)] = _XAxis.Y;
+	Data[M(0, 2)] = _XAxis.Z;
+	Data[M(0, 3)] = _XAxis.W;
 }
 
 void CGL_Matrix3D::SetYAxis(const CGL_Vector3D& _YAxis)
 {
-	Data[M(0, 1)] = _YAxis.X;
+	Data[M(1, 0)] = _YAxis.X;
 	Data[M(1, 1)] = _YAxis.Y;
-	Data[M(2, 1)] = _YAxis.Z;
-	Data[M(3, 1)] = _YAxis.W;
+	Data[M(1, 2)] = _YAxis.Z;
+	Data[M(1, 3)] = _YAxis.W;
 }
 
 void CGL_Matrix3D::SetZAxis(const CGL_Vector3D& _ZAxis)
 {
-	Data[M(0, 2)] = _ZAxis.X;
-	Data[M(1, 2)] = _ZAxis.Y;
+	Data[M(2, 0)] = _ZAxis.X;
+	Data[M(2, 1)] = _ZAxis.Y;
 	Data[M(2, 2)] = _ZAxis.Z;
-	Data[M(3, 2)] = _ZAxis.W;
+	Data[M(2, 3)] = _ZAxis.W;
 }
 
-void CGL_Math::CGL_Values::CGL_Matrix3D::SetWAxis(const CGL_Vector3D& _ZAxis)
+void CGL_Matrix3D::SetWAxis(const CGL_Vector3D& _WAxis)
 {
-	Data[M(0, 3)] = _ZAxis.X;
-	Data[M(1, 3)] = _ZAxis.Y;
-	Data[M(2, 3)] = _ZAxis.Z;
-	Data[M(3, 3)] = _ZAxis.W;
+	Data[M(3, 0)] = _WAxis.X;
+	Data[M(3, 1)] = _WAxis.Y;
+	Data[M(3, 2)] = _WAxis.Z;
+	Data[M(3, 3)] = _WAxis.W;
 }
 
 void CGL_Matrix3D::SetTranslation(const CGL_Vector3D& _translation)
@@ -82,13 +82,6 @@ void CGL_Matrix3D::SetTranslation(const CGL_Vector3D& _translation)
 	this->SetWAxis(_translation);
 }
 
-void CGL_Matrix3D::Scale(double _Scalar)
-{
-	for (int i = 0; i < 16; i++)
-	{
-		Data[i] *= _Scalar;
-	}
-}
 
 double CGL_Matrix3D::Determinant() const
 {
@@ -130,24 +123,25 @@ bool CGL_Matrix3D::Invert()
 		double M32 = Data[M(0, 2)] * Data[M(1, 1)] * Data[M(3, 0)] - Data[M(0, 1)] * Data[M(1, 2)] * Data[M(3, 0)] - Data[M(0, 2)] * Data[M(1, 0)] * Data[M(3, 1)] + Data[M(0, 0)] * Data[M(1, 2)] * Data[M(3, 1)] + Data[M(0, 1)] * Data[M(1, 0)] * Data[M(3, 2)] - Data[M(0, 0)] * Data[M(1, 1)] * Data[M(3, 2)];
 		double M33 = Data[M(0, 1)] * Data[M(1, 2)] * Data[M(2, 0)] - Data[M(0, 2)] * Data[M(1, 1)] * Data[M(2, 0)] + Data[M(0, 2)] * Data[M(1, 0)] * Data[M(2, 1)] - Data[M(0, 0)] * Data[M(1, 2)] * Data[M(2, 1)] - Data[M(0, 1)] * Data[M(1, 0)] * Data[M(2, 2)] + Data[M(0, 0)] * Data[M(1, 1)] * Data[M(2, 2)];
 		
-		Data[M(0, 0)] = M00;
-		Data[M(0, 1)] = M01;
-		Data[M(0, 2)] = M02;
-		Data[M(0, 3)] = M03;
-		Data[M(1, 0)] = M10;
-		Data[M(1, 1)] = M11;
-		Data[M(1, 2)] = M12;
-		Data[M(1, 3)] = M13;
-		Data[M(2, 0)] = M20;
-		Data[M(2, 1)] = M21;
-		Data[M(2, 2)] = M22;
-		Data[M(2, 3)] = M23;
-		Data[M(3, 0)] = M30;
-		Data[M(3, 1)] = M31;
-		Data[M(3, 2)] = M32;
-		Data[M(3, 3)] = M33;
+		double scale = 1 / Det;
+
+		Data[M(0, 0)] = M00 * scale;
+		Data[M(0, 1)] = M01 * scale;
+		Data[M(0, 2)] = M02 * scale;
+		Data[M(0, 3)] = M03 * scale;
+		Data[M(1, 0)] = M10 * scale;
+		Data[M(1, 1)] = M11 * scale;
+		Data[M(1, 2)] = M12 * scale;
+		Data[M(1, 3)] = M13 * scale;
+		Data[M(2, 0)] = M20 * scale;
+		Data[M(2, 1)] = M21 * scale;
+		Data[M(2, 2)] = M22 * scale;
+		Data[M(2, 3)] = M23 * scale;
+		Data[M(3, 0)] = M30 * scale;
+		Data[M(3, 1)] = M31 * scale;
+		Data[M(3, 2)] = M32 * scale;
+		Data[M(3, 3)] = M33 * scale;
 		
-		Scale(1 / Det);
 		return true;
 	}
 	else
@@ -170,20 +164,20 @@ void CGL_Math::CGL_Values::CGL_Matrix3D::Transpose()
 CGL_Vector3D CGL_Matrix3D::TransformVector(const CGL_Vector3D& _Vector) const
 {
 	return CGL_Vector3D(
-		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(0, 1)]) + (_Vector.Z * Data[M(0, 2)]) + (_Vector.W * Data[M(0, 3)]) ),
-		( (_Vector.X * Data[M(1, 0)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(1, 2)]) + (_Vector.W * Data[M(1, 3)]) ),
-		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) + (_Vector.W * Data[M(2, 3)]) ),
-		( (_Vector.X * Data[M(3, 0)]) + (_Vector.Y * Data[M(3, 1)]) + (_Vector.Z * Data[M(3, 2)]) + (_Vector.W * Data[M(3, 3)]) )
+		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(1, 0)]) + (_Vector.Z * Data[M(2, 0)]) + (_Vector.W * Data[M(3, 0)]) ),
+		( (_Vector.X * Data[M(0, 1)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(2, 1)]) + (_Vector.W * Data[M(3, 1)]) ),
+		( (_Vector.X * Data[M(0, 2)]) + (_Vector.Y * Data[M(1, 2)]) + (_Vector.Z * Data[M(2, 2)]) + (_Vector.W * Data[M(3, 2)]) ),
+		( (_Vector.X * Data[M(0, 3)]) + (_Vector.Y * Data[M(1, 3)]) + (_Vector.Z * Data[M(2, 3)]) + (_Vector.W * Data[M(3, 3)]) )
 		);
 }
 
 CGL_Vector3D CGL_Matrix3D::DeltaTransformVector(const CGL_Vector3D& _Vector) const
 {
 	return CGL_Vector3D(
-		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(0, 1)]) + (_Vector.Z * Data[M(0, 2)]) ),
-		( (_Vector.X * Data[M(1, 0)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(1, 2)]) ),
-		( (_Vector.X * Data[M(2, 0)]) + (_Vector.Y * Data[M(2, 1)]) + (_Vector.Z * Data[M(2, 2)]) ),
-		( (_Vector.X * Data[M(3, 0)]) + (_Vector.Y * Data[M(3, 1)]) + (_Vector.Z * Data[M(3, 2)]) )
+		( (_Vector.X * Data[M(0, 0)]) + (_Vector.Y * Data[M(1, 0)]) + (_Vector.Z * Data[M(2, 0)]) ),
+		( (_Vector.X * Data[M(0, 1)]) + (_Vector.Y * Data[M(1, 1)]) + (_Vector.Z * Data[M(2, 1)]) ),
+		( (_Vector.X * Data[M(0, 2)]) + (_Vector.Y * Data[M(1, 2)]) + (_Vector.Z * Data[M(2, 2)]) ),
+		( (_Vector.X * Data[M(0, 3)]) + (_Vector.Y * Data[M(1, 3)]) + (_Vector.Z * Data[M(2, 3)]) )
 		);
 }
 
@@ -304,9 +298,9 @@ std::string CGL_Matrix3D::ToString() const
 	return Convert.str();
 }
 
-inline int CGL_Matrix3D::M( int _Row, int _Column ) const
+inline int CGL_Matrix3D::M( int _Column, int _Row) const
 {
-	return ( ( 4 * (_Row) ) + _Column);
+	return ( ( 4 * (_Column) ) + _Row);
 }
 
 vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Position,
