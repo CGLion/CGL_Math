@@ -300,7 +300,7 @@ void CGL_Matrix3D::SetData(vector<double> _Data)
 std::string CGL_Matrix3D::ToString() const
 {
 	std::ostringstream Convert;
-	Convert << "CGL_Matrix3D v0.1:( " << GetXAxis().ToString() << " , " << GetYAxis().ToString() << " , " << GetZAxis().ToString() << " , " << GetTranslation().ToString() << " )";
+	Convert << "(" << GetXAxis().ToString() << "," << GetYAxis().ToString() << "," << GetZAxis().ToString() << "," << GetTranslation().ToString() << ")";
 	return Convert.str();
 }
 

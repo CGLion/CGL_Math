@@ -146,6 +146,6 @@ using namespace CGL_Math::CGL_Values;
 	{
 		std::ostringstream Convert;
 		Convert << std::fixed;
-		Convert << "CGL_Vector v0.1: ( " << std::setprecision(4) << X << " , " << Y << " , " << Z << " , " << W << " )";
+		Convert << "( " << std::setprecision(4) << X << "," << Y << "," << Z << "," << W << ")";
 		return Convert.str();
 	}
