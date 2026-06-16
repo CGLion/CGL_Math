@@ -137,6 +137,13 @@ using namespace CGL_Math::CGL_Values;
 		return length;
 	}
 
+	CGL_Vector3D CGL_Math::CGL_Values::CGL_Vector3D::GetNormalizedVector()
+	{
+		CGL_Vector3D outVec3D = CGL_Vector3D(X, Y, Z);
+		outVec3D.Normalize();
+		return outVec3D;
+	}
+
 	double CGL_Vector3D::GetLength() const
 	{
 		return sqrt(X*X + Y*Y + Z*Z);
