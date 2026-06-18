@@ -64,10 +64,14 @@ namespace CGL_Math
 			//CGL_Vector3D Cross(const CGL_Vector3D &_Vector);
 
 			/**
-			* sets the length (magnitude) of the vector to 1.0
+			* sets the length (magnitude) of the vector to 1.0 and returns the original vector magnitude
 			*/
 			double Normalize();
 
+			/**
+			* returns a new CGL_Vector3D with a magnitude of 1.0 
+			*/
+			CGL_Vector3D GetNormalizedVector();
 
 			double GetLength() const;
 
