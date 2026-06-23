@@ -128,6 +128,13 @@ namespace CGL_Math
 		static void CombineVectors(const std::vector<CGL_Vector3D>& vectors, const std::vector<double>& weights, CGL_Vector3D& combination);
 
 		/**
+		* Interpolates the supllied N-length double precision vectors using the supplied t value:
+		* Raises an exception if the vectors are not of teh same length
+		* Limited to vectors of size uint_fast16_t max
+		*/
+		static std::vector<double> InterpNLengthVec(const std::vector<double>& vectorA, const std::vector<double>& vectorB, double t);
+
+		/**
 		* Generate a random double value in range 0.0 -> 1.0
 		* This function uses the std rand function internaly without managing the seed
 		*/
