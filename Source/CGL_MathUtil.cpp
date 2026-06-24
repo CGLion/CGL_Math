@@ -5,6 +5,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <limits>
 #include <float.h>
 
 using namespace std;
@@ -179,19 +180,17 @@ namespace CGL_Math
 			combination.Z += vectors[i].Z * weights[i];
 		}
 	}
-	std::vector<double> CGL_MathUtil::InterpNLengthVec(const std::vector<double>& vectorA, const std::vector<double>& vectorB, double t)
+	void CGL_MathUtil::NLerp(const std::vector<double>& vecA, const std::vector<double>& vecB, double t, std::vector<double>& vecResult)
 	{
-		if (vectorA.size() != vectorB.size())
+		if (vecA.size() != vecB.size() || vecA.size() != vecResult.size())
 		{
-			throw std::invalid_argument("Vectors of different sizes can't be interpolated");
+			throw std::invalid_argument("The vector arguments are of different sizes");
 		}
-		uint_fast16_t numComponents = vectorA.size();
-		std::vector<double> resultVec(numComponents, 0.0);
-		for (uint_fast16_t i = 0; i < numComponents; ++i)
+		size_t numComponents = vecA.size();
+		for (size_t i = 0; i < numComponents; ++i)
 		{
-			resultVec[i] = ( vectorA[i] * (1.0 - t) ) + ( vectorB[i] * t );
+			vecResult[i] = ( vecA[i] * (1.0 - t) ) + ( vecB[i] * t );
 		}
-		return resultVec;
 	}
 	
 	double CGL_MathUtil::RandomFloat()

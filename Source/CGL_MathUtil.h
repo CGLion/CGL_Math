@@ -129,10 +129,9 @@ namespace CGL_Math
 
 		/**
 		* Interpolates the supllied N-length double precision vectors using the supplied t value:
-		* Raises an exception if the vectors are not of teh same length
-		* Limited to vectors of size uint_fast16_t max
+		* Raises an exception if the vectors are not of the same length
 		*/
-		static std::vector<double> InterpNLengthVec(const std::vector<double>& vectorA, const std::vector<double>& vectorB, double t);
+		static void NLerp(const std::vector<double>& vecA, const std::vector<double>& vecB, double t, std::vector<double>& vecResult);
 
 		/**
 		* Generate a random double value in range 0.0 -> 1.0
