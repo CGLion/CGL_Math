@@ -134,6 +134,11 @@ namespace CGL_Math
 		static void NLerp(const std::vector<double>& vecA, const std::vector<double>& vecB, double t, std::vector<double>& vecResult);
 
 		/**
+		* Execute std::abs on all the values stored in the supplied std::vector<double> vector
+		*/
+		static void NAbs(std::vector<double>& vec);
+
+		/**
 		* Generate a random double value in range 0.0 -> 1.0
 		* This function uses the std rand function internaly without managing the seed
 		*/

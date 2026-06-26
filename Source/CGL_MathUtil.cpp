@@ -192,6 +192,14 @@ namespace CGL_Math
 			vecResult[i] = ( vecA[i] * (1.0 - t) ) + ( vecB[i] * t );
 		}
 	}
+
+	void CGL_MathUtil::NAbs(std::vector<double>& vec)
+	{
+		std::transform(vec.begin(), vec.end(), vec.begin(),
+			[](double val) {
+				return std::abs(val);
+			});
+	}
 	
 	double CGL_MathUtil::RandomFloat()
 	{
