@@ -77,6 +77,15 @@ namespace CGL_Math
 		return ( ( (num - sa) / (sb - sa) ) * (tb - ta) ) + ta;
 	}
 
+	double CGL_MathUtil::Signum(double num)
+	{
+		if (num == 0.0)
+		{
+			throw std::invalid_argument("A value of 0.0 cannot be normalizd to +/- 1.0");
+		}
+		return num / abs(num);
+	}
+
 	void CGL_MathUtil::ValsToWeights(std::vector<double>& list)
 	{
 		double sum = CGL_MathUtil::Sum(list);

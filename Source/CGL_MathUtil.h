@@ -63,6 +63,12 @@ namespace CGL_Math
 		static double MapRange(double num, double sa, double sb, double ta, double tb);
 
 		/**
+		* Normalizes the supplied value to 1.0 while retaining its +/- sign
+		* Raises an exception if supplied with 0
+		*/
+		static double Signum(double num);
+
+		/**
 		* Returns the clamped difference between num and thresh or num and -thresh depending on num sign:
 		* thresh is used as absolute value
 		*/
@@ -84,6 +90,7 @@ namespace CGL_Math
 		* Converts the list of values to a normalized weight list (sum of 1.0):
 		* Counts on user context to provide only positive values.
 		* If the list contains only 0s the weights will be 1 / num of elements
+		* If the sum of teh components is <0 the weights will be 1 / num of elements
 		*/
 		static void ValsToWeights(std::vector<double>& list);
 
