@@ -74,6 +74,10 @@ namespace CGL_Math
 	
 	double CGL_MathUtil::MapRange(double num, double sa, double sb, double ta, double tb)
 	{
+		if (sa == sb)
+		{
+			throw std::invalid_argument("Denegerate source range. sa = ab requiring devision by 0 ");
+		}
 		return ( ( (num - sa) / (sb - sa) ) * (tb - ta) ) + ta;
 	}
 
