@@ -219,7 +219,7 @@ namespace CGL_Math
 		return (double)rand() / (double)RAND_MAX;
 	}
 
-	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandomDirection3D()
+	CGL_Values::CGL_Vector3D CGL_MathUtil::RandomDirection3D()
 	{
 		std::random_device rd;
 		std::mt19937 gen(rd());
@@ -227,18 +227,18 @@ namespace CGL_Math
 		double X = distribution(gen);
 		double Y = distribution(gen);
 		double Z = distribution(gen);
-		CGL_Values::CGL_Vector3D* newVec = new CGL_Values::CGL_Vector3D(X, Y, Z, 1.0);
-		newVec->Normalize();
-		newVec->W = 1.0;
+		CGL_Values::CGL_Vector3D newVec = CGL_Values::CGL_Vector3D(X, Y, Z, 1.0);
+		newVec.Normalize();
+		newVec.W = 1.0;
 		return newVec;
 	}
 
 
-	CGL_Values::CGL_Vector3D* CGL_MathUtil::RandomVector3D(double minLength, double maxLength)
+	CGL_Values::CGL_Vector3D CGL_MathUtil::RandomVector3D(double minLength, double maxLength)
 	{
 		double len = Lerp(minLength, maxLength, RandomFloat());
-		CGL_Values::CGL_Vector3D* newVec = RandomDirection3D();
-		newVec->ScaleBy(len);
+		CGL_Values::CGL_Vector3D newVec = RandomDirection3D();
+		newVec.ScaleBy(len);
 		return newVec;
 	}
 }

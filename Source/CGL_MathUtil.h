@@ -156,14 +156,14 @@ namespace CGL_Math
 		* This function uses instances of std random_device, mt19937 and normal_dostribution
 		* Instancing these objects per every call works but better be checked 
 		*/
-		static CGL_Values::CGL_Vector3D* RandomDirection3D();
+		static CGL_Values::CGL_Vector3D RandomDirection3D();
 
 		/**
 		* Generates a random direction vector with length random variation
 		* @param minLength the minimum length for generated vectors
 		* @param maxLength the maximum length for generated vectors
 		*/
-		static CGL_Values::CGL_Vector3D* RandomVector3D(double minLength, double maxLength);
+		static CGL_Values::CGL_Vector3D RandomVector3D(double minLength, double maxLength);
 	};
 }
 
