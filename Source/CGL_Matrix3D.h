@@ -4,7 +4,7 @@
 
 #include "CGL_Vector3D.h"
 #include "CGL_Ray.h"
-#include <vector>
+#include <array>
 #include <string>
 
 using namespace std;
@@ -34,10 +34,10 @@ namespace CGL_Math
 			~CGL_Matrix3D();
 
 			/**
-			* Set the matrixe's raw numerical data using a vector<double> where every 4 components will be a column 
+			* Set the matrixe's raw numerical data using a std::array<double, 16> where every 4 components will be a column 
 			*/
-			void SetData(const vector<double> _Data);
-			const vector<double> GetData();
+			void SetData(const std::array<double, 16> _Data);
+			const std::array<double, 16> GetData();
 
 			CGL_Vector3D GetXAxis() const;
 			CGL_Vector3D GetYAxis() const;
@@ -107,10 +107,10 @@ namespace CGL_Math
 			
 
 		private:
-			vector<double> Data{	1.0,0.0,0.0,0.0,
-									0.0,1.0,0.0,0.0,
-									0.0,0.0,1.0,0.0,
-									0.0,0.0,0.0,1.0		};
+			std::array<double, 16> Data{	1.0,0.0,0.0,0.0,
+											0.0,1.0,0.0,0.0,
+											0.0,0.0,1.0,0.0,
+											0.0,0.0,0.0,1.0		};
 
 
 			/**
@@ -118,10 +118,10 @@ namespace CGL_Math
 			*/
 			inline int M(int _Column, int _Row) const;
 
-			static vector<double> GenerateLookAtData(	const CGL_Vector3D &_Position,
-														const  CGL_Vector3D &_LookAtTarget,
-														const  CGL_Vector3D &_UpVector,
-														int _LookAtAxis = 0);
+			static array<double, 16> GenerateLookAtData(	const CGL_Vector3D &_Position,
+															const  CGL_Vector3D &_LookAtTarget,
+															const  CGL_Vector3D &_UpVector,
+															int _LookAtAxis = 0);
 		};
 	}
 }

@@ -152,11 +152,11 @@ bool CGL_Matrix3D::Invert()
 
 void CGL_Math::CGL_Values::CGL_Matrix3D::Transpose()
 {
-	std::vector<double> newData = {
-		this->Data.at(0), this->Data.at(4), this->Data.at(8), this->Data.at(12),
-		this->Data.at(1), this->Data.at(5), this->Data.at(9), this->Data.at(13),
-		this->Data.at(2), this->Data.at(6), this->Data.at(10), this->Data.at(14),
-		this->Data.at(3), this->Data.at(7), this->Data.at(11), this->Data.at(15)
+	std::array<double, 16> newData = {
+			this->Data.at(0), this->Data.at(4), this->Data.at(8), this->Data.at(12),
+			this->Data.at(1), this->Data.at(5), this->Data.at(9), this->Data.at(13),
+			this->Data.at(2), this->Data.at(6), this->Data.at(10), this->Data.at(14),
+			this->Data.at(3), this->Data.at(7), this->Data.at(11), this->Data.at(15)
 	};
 	this->SetData(newData);
 }
@@ -286,12 +286,12 @@ double CGL_Matrix3D::GetValue(int _Column, int _Row) const
 	return Data[M(_Column, _Row)];
 }
 
-void CGL_Matrix3D::SetData(vector<double> _Data)
+void CGL_Matrix3D::SetData(std::array<double, 16> _Data)
 {
 	Data = _Data;
 }
 
-const vector<double> CGL_Matrix3D::GetData()
+const std::array<double, 16> CGL_Matrix3D::GetData()
 {
 	return Data;
 }
@@ -308,10 +308,10 @@ inline int CGL_Matrix3D::M( int _Column, int _Row) const
 	return ( ( 4 * (_Column) ) + _Row);
 }
 
-vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Translation,
-												const CGL_Vector3D &_LookAtTarget,
-												const CGL_Vector3D &_UpVector,
-												int _LookAtAxis)
+std::array<double, 16> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Translation,
+														const CGL_Vector3D &_LookAtTarget,
+														const CGL_Vector3D &_UpVector,
+														int _LookAtAxis)
 {
 	CGL_Vector3D RollAxis = CGL_Vector3D::VectorSubtraction(_LookAtTarget, _Translation );
 	RollAxis.Normalize();
@@ -326,10 +326,10 @@ vector<double> CGL_Matrix3D::GenerateLookAtData(const CGL_Vector3D &_Translation
 	PitchAxis.W = -(CGL_Vector3D::Dot(PitchAxis, _Translation));
 	YawAxis.W = -(CGL_Vector3D::Dot(YawAxis, _Translation));
 
-	vector<double> Data{	1.0,0.0,0.0,0.0,
-							0.0,1.0,0.0,0.0,
-							0.0,0.0,1.0,0.0,
-							0.0,0.0,0.0,1.0		};
+	std::array<double, 16> Data{	1.0,0.0,0.0,0.0,
+									0.0,1.0,0.0,0.0,
+									0.0,0.0,1.0,0.0,
+									0.0,0.0,0.0,1.0		};
 	
 	Data[ 0 + _LookAtAxis] = RollAxis.X;
 	Data[ 1 + _LookAtAxis] = RollAxis.Y;
