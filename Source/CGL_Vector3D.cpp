@@ -42,20 +42,14 @@ using namespace CGL_Math::CGL_Values;
 
 	double CGL_Vector3D::Dot(const CGL_Vector3D &_VectorA, const CGL_Vector3D &_VectorB, bool normalize)
 	{
-		double dot;
+		double dot =	(_VectorA.X * _VectorB.X) +
+						(_VectorA.Y * _VectorB.Y) +
+						(_VectorA.Z * _VectorB.Z);
 		if (normalize)
 		{
-			double normA = 1.0 / CGL_Geometry::VectorLength3D(_VectorA.X, _VectorA.Y, _VectorA.Z);
-			double normB = 1.0 / CGL_Geometry::VectorLength3D(_VectorB.X, _VectorB.Y, _VectorB.Z);
-			dot =	( (_VectorA.X * normA) * (_VectorB.X * normB) ) +
-					( (_VectorA.Y * normA) * (_VectorB.Y * normB) ) +
-					( (_VectorA.Z * normA) * (_VectorB.Z * normB) );
-		}
-		else
-		{
-			dot =	(_VectorA.X * _VectorB.X) +
-					(_VectorA.Y * _VectorB.Y) + 
-					(_VectorA.Z * _VectorB.Z);
+			double lenA = CGL_Geometry::VectorLength3D(_VectorA.X, _VectorA.Y, _VectorA.Z);
+			double lenB = CGL_Geometry::VectorLength3D(_VectorB.X, _VectorB.Y, _VectorB.Z);
+			dot /= (lenA * lenB);
 		}
 		return dot;
 	}
