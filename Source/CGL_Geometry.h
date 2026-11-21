@@ -4,6 +4,7 @@
 #include "CGL_Vector3D.h"
 #include "CGL_Matrix3D.h"
 #include <cmath>
+#include <vector>
 
 using namespace CGL_Math::CGL_Values;
 
@@ -185,7 +186,7 @@ namespace CGL_Math
 			static CGL_Vector3D GetPointInSpace( CGL_Vector3D _Point, CGL_Matrix3D _Matrix );
 
 			// Returns the coordinates of a list of points in _Matrix space:
-			static vector<CGL_Vector3D> GetPointsInspace(vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix);
+			static std::vector<CGL_Vector3D> GetPointsInspace(std::vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix);
 			
 			// Returns the world transform of a child matrix:
 			static CGL_Matrix3D GetWorldTransform(CGL_Matrix3D &_ChildTransform, CGL_Matrix3D &_ParentTransform);

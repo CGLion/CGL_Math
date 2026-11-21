@@ -146,10 +146,10 @@ namespace CGL_Math
 		return NewVector;
 	}
 
-	vector<CGL_Vector3D> CGL_Geometry::GetPointsInspace(vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix)
+	std::vector<CGL_Vector3D> CGL_Geometry::GetPointsInspace(std::vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix)
 	{
 		bool Invert = _Matrix.Invert();
-		vector<CGL_Vector3D> NewPointList = vector<CGL_Vector3D>();
+		std::vector<CGL_Vector3D> NewPointList = std::vector<CGL_Vector3D>();
 		if (Invert)
 		{
 			for (unsigned int i = 0; i < _PointList.size(); i++)
