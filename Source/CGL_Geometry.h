@@ -43,7 +43,7 @@ namespace CGL_Math
 			*/
 			static inline double VectorLength2D(double _X, double _Y)
 			{
-				return (sqrt(pow(_X, 2.0) + pow(_Y, 2.0)));
+				return (sqrt((_X * _X) + (_Y * _Y)));
 			}
 
 			/** Returns the length of supplied x,y,z vector:
@@ -53,7 +53,7 @@ namespace CGL_Math
 			*/
 			static inline double VectorLength3D(double _X, double _Y, double _Z)
 			{
-				return (sqrt(pow(_X, 2.0) + pow(_Y, 2.0) + pow(_Z, 2.0)));
+				return (sqrt((_X * _X) + (_Y * _Y) + (_Z * _Z)));
 			}
 
 			/** Returns the Distance between supplied point Ax,Ay and supplied point Bx,By:
@@ -64,7 +64,7 @@ namespace CGL_Math
 			*/
 			static inline double Distance2D(double _AX, double _AY, double _BX, double _BY)
 			{
-				return (sqrt(pow(_BX - _AX, 2.0) + pow(_BY - _AY, 2.0)));
+				return (sqrt(((_BX - _AX) * (_BX - _AX)) + ((_BY - _AY) * (_BY - _AY))));
 			}
 
 			/** Returns the Distance between supplied point Ax,Ay,Az and supplied point Bx,By,Bz:
@@ -77,7 +77,7 @@ namespace CGL_Math
 			*/
 			static inline double Distance3D(double _AX, double _AY, double _AZ, double _BX, double _BY, double _BZ)
 			{
-				return (sqrt(pow(_BX - _AX, 2.0) + pow(_BY - _AY, 2.0) + pow(_BZ - _AZ, 2.0)));
+				return (sqrt(((_BX - _AX) * (_BX - _AX)) + ((_BY - _AY) * (_BY - _AY)) + ((_BZ - _AZ) * (_BZ - _AZ))));
 			}
 
 			/** Returns the linear combination of A and B using wA and wB as factors:
