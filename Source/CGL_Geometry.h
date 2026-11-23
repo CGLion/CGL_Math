@@ -183,10 +183,10 @@ namespace CGL_Math
 
 
 			// Returns the coordinates of _Point in _Matrix space
-			static CGL_Vector3D GetPointInSpace( CGL_Vector3D _Point, CGL_Matrix3D _Matrix );
+			static CGL_Vector3D GetPointInSpace( const CGL_Vector3D _Point, const CGL_Matrix3D _Matrix );
 
 			// Returns the coordinates of a list of points in _Matrix space:
-			static std::vector<CGL_Vector3D> GetPointsInspace(std::vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix);
+			static std::vector<CGL_Vector3D> GetPointsInspace(const std::vector<CGL_Vector3D> _PointList, const CGL_Matrix3D _Matrix);
 			
 			// Returns the world transform of a child matrix:
 			static CGL_Matrix3D GetWorldTransform(CGL_Matrix3D &_ChildTransform, CGL_Matrix3D &_ParentTransform);

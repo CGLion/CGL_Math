@@ -131,31 +131,20 @@ namespace CGL_Math
 
 
 
-	CGL_Vector3D CGL_Geometry::GetPointInSpace(CGL_Vector3D _Point, CGL_Matrix3D _Matrix)
+	CGL_Vector3D CGL_Geometry::GetPointInSpace(const CGL_Vector3D _Point, const CGL_Matrix3D _Matrix)
 	{
-		bool Invert = _Matrix.Invert();
-		CGL_Vector3D NewVector;
-		if (Invert)
-		{
-			NewVector = _Matrix.TransformVector(_Point);
-		}
-		else
-		{
-			NewVector = CGL_Vector3D();
-		}
+		CGL_Matrix3D invMtx = _Matrix.GetInverseUnsafe();
+		CGL_Vector3D NewVector = invMtx.TransformVector(_Point);
 		return NewVector;
 	}
 
-	std::vector<CGL_Vector3D> CGL_Geometry::GetPointsInspace(std::vector<CGL_Vector3D> _PointList, CGL_Matrix3D _Matrix)
+	std::vector<CGL_Vector3D> CGL_Geometry::GetPointsInspace(const std::vector<CGL_Vector3D> _PointList, const CGL_Matrix3D _Matrix)
 	{
-		bool Invert = _Matrix.Invert();
+		CGL_Matrix3D invMtx = _Matrix.GetInverseUnsafe();
 		std::vector<CGL_Vector3D> NewPointList = std::vector<CGL_Vector3D>();
-		if (Invert)
+		for (unsigned int i = 0; i < _PointList.size(); i++)
 		{
-			for (unsigned int i = 0; i < _PointList.size(); i++)
-			{
-				NewPointList.push_back(_Matrix.TransformVector(_PointList[i]));
-			}
+			NewPointList.push_back(invMtx.TransformVector(_PointList[i]));
 		}
 		return NewPointList;
 	}
