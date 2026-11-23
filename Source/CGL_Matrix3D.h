@@ -64,6 +64,12 @@ namespace CGL_Math
 			bool Invert();
 
 			/**
+			* Get unsafe inverted copy of the matrix
+			* If the matrix is uninvertable the function will return the same matrixs
+			*/
+			CGL_Matrix3D GetInverseUnsafe() const;
+
+			/**
 			* Transposes the Matrix
 			*/
 			void Transpose();

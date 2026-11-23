@@ -150,6 +150,13 @@ bool CGL_Matrix3D::Invert()
 	}
 }
 
+CGL_Matrix3D CGL_Math::CGL_Values::CGL_Matrix3D::GetInverseUnsafe() const
+{
+	CGL_Matrix3D newMtx = *this;
+	newMtx.Invert();
+	return newMtx;
+}
+
 void CGL_Math::CGL_Values::CGL_Matrix3D::Transpose()
 {
 	std::array<double, 16> newData = {
